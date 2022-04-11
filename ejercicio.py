@@ -24,8 +24,9 @@ print(informacion_alumnos("calificaciones2.csv"))
 
 def calificacion_final(lista):
     for diccionario in lista:
-        nota_final=(diccionario["Parcial1"]*0.3)+(diccionario["Parcial2"]*0.3)+(diccionario["Practicas"]*0.4)
-        if diccionario["Ordinario1"]!=0 and diccionario["Ordinario2"]!=0 and diccionario["OrdinarioPracticas"]!=0:
+        if diccionario["Ordinario1"]==0 and diccionario["Ordinario2"]==0 and diccionario["OrdinarioPracticas"]==0:
+            nota_final=(diccionario["Parcial1"]*0.3)+(diccionario["Parcial2"]*0.3)+(diccionario["Practicas"]*0.4)
+        elif diccionario["Ordinario1"]!=0 and diccionario["Ordinario2"]!=0 and diccionario["OrdinarioPracticas"]!=0:
             nota_final=(diccionario["Ordinario1"]*0.3)+(diccionario["Ordinario2"]*0.3)+(diccionario["OrdinarioPracticas"]*0.4)
         elif diccionario["Ordinario1"]==0 and diccionario["Ordinario2"]!=0 and diccionario["OrdinarioPracticas"]!=0:
             nota_final=(diccionario["Parcial1"]*0.3)+(diccionario["Ordinario2"]*0.3)+(diccionario["OrdinarioPracticas"]*0.4)
@@ -43,4 +44,53 @@ def calificacion_final(lista):
     return lista
 
 print(calificacion_final(informacion_alumnos("calificaciones2.csv")))
+
+def aprobados_y_suspensos(lista):
+    aprobados=[]
+    suspensos=[]
+    for diccionario in lista:
+        if diccionario["NotaFinal"]<5:
+            suspensos.append(diccionario["Nombre"])
+        else:
+            if diccionario["Ordinario1"]==0 and diccionario["Ordinario2"]==0 and diccionario["OrdinarioPracticas"]==0:
+                if diccionario["Parcial1"]>4 and diccionario["Parcial2"]>4 and diccionario["Practicas"]>4:
+                    aprobados.append[diccionario["Nombre"]]
+                else:
+                    suspensos.append(diccionario["Nombre"])
+            elif diccionario["Ordinario1"]!=0 and diccionario["Ordinario2"]!=0 and diccionario["OrdinarioPracticas"]!=0:
+                if diccionario["Ordinario1"]>4 and diccionario["Ordinario2"]>4 and diccionario["OrdinarioPracticas"]>4:
+                    aprobados.append[diccionario["Nombre"]]
+                else:
+                    suspensos.append(diccionario["Nombre"])
+            elif diccionario["Ordinario1"]==0 and diccionario["Ordinario2"]!=0 and diccionario["OrdinarioPracticas"]!=0:
+                if diccionario["Parcial1"]>4 and diccionario["Parcial2"]>4 and diccionario["Practicas"]>4:
+                    aprobados.append[diccionario["Nombre"]]
+                else:
+                    suspensos.append(diccionario["Nombre"])
+            elif diccionario["Ordinario1"]!=0 and diccionario["Ordinario2"]==0 and diccionario["OrdinarioPracticas"]!=0:
+                if diccionario["Parcial1"]>4 and diccionario["Parcial2"]>4 and diccionario["Practicas"]>4:
+                    aprobados.append[diccionario["Nombre"]]
+                else:
+                    suspensos.append(diccionario["Nombre"])
+            elif diccionario["Ordinario1"]!=0 and diccionario["Ordinario2"]!=0 and diccionario["OrdinarioPracticas"]==0:
+                if diccionario["Parcial1"]>4 and diccionario["Parcial2"]>4 and diccionario["Practicas"]>4:
+                    aprobados.append[diccionario["Nombre"]]
+                else:
+                    suspensos.append(diccionario["Nombre"])
+            elif diccionario["Ordinario1"]==0 and diccionario["Ordinario2"]==0 and diccionario["OrdinarioPracticas"]!=0:
+                if diccionario["Parcial1"]>4 and diccionario["Parcial2"]>4 and diccionario["Practicas"]>4:
+                    aprobados.append[diccionario["Nombre"]]
+                else:
+                    suspensos.append(diccionario["Nombre"])
+            elif diccionario["Ordinario1"]==0 and diccionario["Ordinario2"]!=0 and diccionario["OrdinarioPracticas"]==0:
+                if diccionario["Parcial1"]>4 and diccionario["Parcial2"]>4 and diccionario["Practicas"]>4:
+                    aprobados.append[diccionario["Nombre"]]
+                else:
+                    suspensos.append(diccionario["Nombre"])
+            elif diccionario["Ordinario1"]!=0 and diccionario["Ordinario2"]==0 and diccionario["OrdinarioPracticas"]==0:
+                if diccionario["Parcial1"]>4 and diccionario["Parcial2"]>4 and diccionario["Practicas"]>4:
+                    aprobados.append[diccionario["Nombre"]]
+                else:
+                    suspensos.append(diccionario["Nombre"])
+
 
